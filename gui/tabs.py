@@ -285,7 +285,7 @@ class Notebook(ttk.Notebook):
                     ttk.Label(self.item_frame, text="Enchanted").grid(column=1, row=crow, sticky='NES')
                     description = enchanted[1]
             cbl = len(description.get())
-            cb = ttk.Combobox(self.item_frame, textvariable=description, width=cbl, values=self.valid_values,
+            cb = ttk.Combobox(self.item_frame, textvariable=description, width=80, values=self.valid_values,
                                          state='readonly')
             cb.grid(row=crow, sticky='W')
             cb.bind("<<ComboboxSelected>>", lambda x: self.set_item_affixes(x, row))
@@ -366,7 +366,7 @@ class ScrollbarItems(ttk.Frame):
         sb = tk.Scrollbar(self)
         listing = tk.Listbox(self, relief='sunken')
         sb.config(command=listing.yview)
-        listing.config(yscrollcommand=sb.set, height=35)
+        listing.config(yscrollcommand=sb.set, height=35, width=50)
         sb.grid(row=0, column=1, sticky='ns')
         listing.grid(row=0, column=0, sticky='ns')
         listing.insert(0, ' ++ Add Item ++ ')
